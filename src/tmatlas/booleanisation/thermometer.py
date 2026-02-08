@@ -1,5 +1,6 @@
 import numpy as np
 from typing import Any, List
+from numpy.typing import NDArray
 
 
 class Thermometer:
@@ -18,7 +19,7 @@ class Thermometer:
         self.max_bits_per_feature = max_bits_per_feature
         return
 
-    def fit(self, X: Any):
+    def fit(self, X: Any) -> None:
         """Determines the thermometers bins for the passed data.
 
         Args:
@@ -49,7 +50,7 @@ class Thermometer:
             self.number_of_features += self.unique_values[-1].size
         return
 
-    def transform(self, X: Any):
+    def transform(self, X: Any) -> NDArray[np.uint32]:
         """Transforms the input data to binary values according to the
         bins determined during fit.
 
@@ -57,7 +58,7 @@ class Thermometer:
             X: 2D array-like of shape (n_samples, n_features)
         """
         X = np.asarray(X, dtype=np.float32)
-        X_transformed = np.zeros((X.shape[0], self.number_of_features))
+        X_transformed = np.zeros((X.shape[0], self.number_of_features), dtype=np.uint32)
 
         pos = 0
         for i in range(X.shape[1]):
@@ -67,7 +68,7 @@ class Thermometer:
 
         return X_transformed
 
-    def fit_transform(self, X: Any):
+    def fit_transform(self, X: Any) -> NDArray[np.uint32]:
         """Performs both the fit and transform methods in a single function
 
         Args:
@@ -78,7 +79,7 @@ class Thermometer:
 
     def get_feature_names_out(
         self, feature_names: List[str] | None = None, style: str = "threshold"
-    ) -> np.ndarray:
+    ) -> NDArray[str]:
         """
         Using the transformed boolean bins, names are assigned to each column to make the data easily sortable and readable.
 
@@ -123,7 +124,7 @@ class Thermometer:
     def get_bits_per_feature(
         self,
         feature_names: List[str] | None = None,
-    ) -> np.ndarray:
+    ) -> list[tuple[str, int]]:
         """
         Outputs a the numbner of bins for each feature as shown below:
             ┌────────────┬──────────────┐
@@ -136,8 +137,7 @@ class Thermometer:
         Args:
             feature_names: Optional variable for providing the names of the features used. MUST be in the same order as the input data X.
         Returns:
-            A 2D numpy array of order features names with the number of bins for each feature.
-
+            A 2D list of tuples of ordered features names with the number of bins for each feature.
         Note:
             The order of rows matches the order of columns in the original data X.
         """
@@ -148,4 +148,4 @@ class Thermometer:
             feature_names = [f"x{i}" for i in range(len(self.unique_values))]
 
         counts = [len(thr) for thr in self.unique_values]  # k thresholds → k bits
-        return np.asarray(list(zip(feature_names, counts)), dtype=object)
+        return list(zip(feature_names, counts))
