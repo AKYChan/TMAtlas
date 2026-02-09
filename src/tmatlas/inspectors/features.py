@@ -43,7 +43,7 @@ class FeatureInspector:
         if len(self.feature_names) != X.shape[1]:
             raise ValueError("Length of feature_names must match columns in X.")
 
-        self.boolean_labels = NDArray[str] = self.binarizer.get_feature_names_out(
+        self.boolean_labels: NDArray[str] = self.binarizer.get_feature_names_out(
             self.feature_names
         )
 
