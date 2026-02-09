@@ -39,20 +39,34 @@ class Literal:
 
 
 @dataclass
+class ClauseWeight:
+    """A clause's weight and derived polarity for a single class (or regression)."""
+
+    value: float
+    polarity: str  # "positive" | "negative"
+
+    def to_dict(self) -> Dict[str, Any]:
+        return {"value": self.value, "polarity": self.polarity}
+
+
+@dataclass
 class Clause:
     """A fully translated clause with its literals and weight."""
 
     id: int
-    polarity: str
     literals: list[Literal]
-    weights: Union[float, Dict[str, float]]
+    weights: Union[ClauseWeight, Dict[str, ClauseWeight]]
 
     def to_dict(self) -> Dict[str, Any]:
+        if isinstance(self.weights, ClauseWeight):
+            weights_out = self.weights.to_dict()
+        else:
+            weights_out = {cls: cw.to_dict() for cls, cw in self.weights.items()}
+
         return {
             "id": self.id,
-            "polarity": self.polarity,
             "literals": [lit.to_dict() for lit in self.literals],
-            "weights": self.weights,
+            "weights": weights_out,
         }
 
 
