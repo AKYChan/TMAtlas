@@ -96,7 +96,6 @@ class Thermometer:
         if not hasattr(self, "unique_values"):
             raise RuntimeError("Call fit() before requesting feature names.")
 
-        breakpoint()
         if style != "threshold" and style != "range":
             raise RuntimeError(
                 f"{style} is not a supported style. Use 'threshold' or 'range'."
