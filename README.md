@@ -2,6 +2,10 @@
 
 A Python package for exporting trained Tsetlin Machine models into structured, serialisable formats. It separates **model introspection** (extracting clauses, weights, features) from **export** (JSON, CSV), making it straightforward to add support for new model types or output formats.
 
+## Disclaimer
+
+Visualisation tools to be added at a later date.
+
 ## Installation
 
 `pip install -e tmatlas`
