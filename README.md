@@ -36,6 +36,11 @@ src/
 
 ## Quick Start
 
+### Model support
+
+**VERY IMPORTANT**
+TMAtlas currently only supports the Coalesced Classification model from TMU and the Regression model from TMU.
+
 ### 1. JSON Model Export
 
 This is the primary use case: exporting a trained model's full structure (features, clauses, weights, metadata) to a JSON-serialisable dictionary.
@@ -64,7 +69,7 @@ inspector = TMUInspector(model, feat_ext)
 inspector = TMUInspector(model, feat_ext, classes=["cat", "dog"])
 
 # Step 3: Export
-data = JsonExporter(introspector, feat_ext).export()
+data = JsonExporter(inspector, feat_ext).export()
 
 # Step 4: Save to file
 with open("model_export.json", "w") as f:
