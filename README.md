@@ -8,7 +8,7 @@ Visualisation tools to be added at a later date.
 
 ## Installation
 
-`pip install -e tmatlas`
+`pip install -e .`
 
 Your trained model should come from the [`tmu`](https://github.com/cair/tmu) library.
 
