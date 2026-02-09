@@ -28,7 +28,7 @@ def format_clause_activations(
 
 def export_data_to_csv(
     output_filename: str,
-    X_data: pd.Dataframe,
+    X_data: pd.DataFrame,
     y_actual: np.ndarray,
     y_predicted: np.ndarray,
     activated_clauses_list: List[Dict[str, List[int]]],
@@ -44,7 +44,7 @@ def export_data_to_csv(
         activated_clauses_list: Per-sample activated clause dicts (see
             :func:`format_clause_activations`).
     """
-    if not isinstance(X_data, pd.Dataframe):
+    if not isinstance(X_data, pd.DataFrame):
         raise TypeError("X_data must be a pandas Dataframe.")
 
     feature_names = X_data.colmns.tolist()
