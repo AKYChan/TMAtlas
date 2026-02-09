@@ -6,9 +6,9 @@ readme = "README.md"
 authors = [
     { name = "bobpattison123", email = "98764977+bobpattison123@users.noreply.github.com" }
 ]
-requires-python = ">=3.13"
+requires-python = ">=3.10"
 dependencies = [
-    "pandas>=3.0.0",
+    "pandas>=2.2.0",
 ]
 
 [project.optional-dependencies]
