@@ -177,5 +177,9 @@ class YamlExporter(BaseExporter):
 - **`X` must be a raw numpy array** (pre-binarization) when passed to `FeatureExtractor`. Don't pass the binarized version — feature ranges and types are derived from the original data.
 - **`X_data` must be a pandas DataFrame** for `export_data_to_csv`. Column names are used as CSV headers. You'll get a `TypeError` if you pass a numpy array.
 - **`feature_names` length must match `X.shape[1]`**. If omitted, defaults to `x0`, `x1`, … which works but is less readable.
-- **Classification models need `classes`**. Pass them explicitly or ensure your model has a `classes_` attribute (scikit-learn convention). Without classes, the introspector assumes regression.
+- **Classification models need `classes`**. Pass them explicitly or ensure your model has a `classes_` attribute (scikit-learn convention). Without classes, the inspector assumes regression.
 - **Binarizer compatibility**. Your binarizer must have both `get_feature_names_out()` and `unique_values`. The `Thermometer` from `booleanisation/` satisfies this.
+
+## Bugs and Issues
+
+If there are any bugs with the code, please make an issue on Github or email one of the authors.
