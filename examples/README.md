@@ -8,9 +8,7 @@ A simple iris example that will train a TM model with Optuna and return a JSON a
 
 ### Requirements
 
-`optuna
-scikit-learn
-tmu`
+`pip3 install optuna scikit-learn tmu`
 
 ### Quick Start
 
