@@ -1,14 +1,14 @@
 # TMAtlas — An Interactive Visual Analytics Framework for Explaining Tsetlin Machine Outputs
 
-A Python package for exporting trained Tsetlin Machine models into structured, serialisable formats. It separates **model inspection** (extracting clauses, weights, features) from **export** (JSON, CSV), making it straightforward to add support for new model types or output formats.
-
-The paper this work is based on is published [here](https://ieeexplore.ieee.org/document/11300436).
+A Python package for exporting trained Tsetlin Machine models into structured, serialisable formats. It separates **model inspection** (extracting clauses, weights, features) from **export** (JSON, CSV), making it straightforward to add support for new model types or output formats. We kindly request you reference the paper this work is based on published [here](https://ieeexplore.ieee.org/document/11300436), if you have found it useful.
 
 ## Disclaimer
 
-Visualisation tools to be added at a later date.
+The current code base allows for human-readblae TM models to be outputted, allowing for deeper analysis of the models. Integration of visualisation and further analytics tools are being developed to be interated TMAtlas once they are ready.
 
 ## Installation
+
+**Disclaimer**: This tool **ONLY** works with **TMU** make sure it is installed before using TMAtlas.
 
 `pip install -e .`
 
