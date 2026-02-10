@@ -2,7 +2,7 @@
 
 A Python package for exporting trained Tsetlin Machine models into structured, serialisable formats. It separates **model introspection** (extracting clauses, weights, features) from **export** (JSON, CSV), making it straightforward to add support for new model types or output formats.
 
-The paper this work is based on is published [here](https://ieeexplore.ieee.org/document/11300436)
+The paper this work is based on is published [here](https://ieeexplore.ieee.org/document/11300436).
 
 ## Disclaimer
 
